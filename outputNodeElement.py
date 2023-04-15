@@ -24,6 +24,7 @@ def main(modelname,instancename,nodeY,elementY,filen,filel):
         elementmatrix=np.zeros((lelement, esize+1))
         for i in range(lelement):
             elementmatrix[i, :] =np.hstack((b.elements[i].label,b.elements[i].connectivity))
+        elementmatrix[:,1:]=elementmatrix[:,1:]+1
         np.savetxt(filel, np.c_[elementmatrix],fmt='%f',delimiter='\t')
         print('The element file has been output')
     print('All done! Enjoy!')
